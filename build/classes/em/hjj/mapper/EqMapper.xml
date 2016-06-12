@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="em.hjj.dao.EqDao">
+	<select id="queryAll" resultType="em.hjj.pojo.Eq">
+		select * from eq 
+	</select>
+
+	<select id="queryById" parameterType="int" resultType="em.hjj.pojo.Eq">
+		select * from eq where id=#{id}
+	</select>
+
+	<select id="queryByType" parameterType="em.hjj.pojo.Type"
+		resultType="em.hjj.pojo.Eq">
+		select * from eq where type2=#{id}
+	</select>
+
+	<insert id="insert" parameterType="em.hjj.pojo.Eq">
+		INSERT INTO eq (name,type1,type2,ishaocai,position,total,nownum)
+		VALUES(#{name},#{type1},#{type2},#{ishaocai},#{position},0,0)
+	</insert>
+
+	<update id="update" parameterType="em.hjj.pojo.Eq">
+		update eq set total=#{total},nownum=#{nownum} where id=#{id}
+	</update>
+
+</mapper>

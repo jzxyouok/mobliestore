@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="em.hjj.dao.TypeDao" >
+    <select id="queryAll" resultType="em.hjj.pojo.Type">
+        select * from type ORDER BY fid,name
+     </select>
+     
+     <select id="queryById" parameterType="int" resultType="em.hjj.pojo.Type">
+        select * from type where fid=#{fid} ORDER BY name
+     </select>
+    <insert id="insert" parameterType="em.hjj.pojo.Type">
+    	INSERT INTO type (name,fid) VALUES(#{name},#{fid})
+    </insert>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="em.hjj.dao.LoanDao">
+    <select id="queryAll"
+        resultType="em.hjj.pojo.Loan">
+        select * from loan 
+     </select>
+     <select id="queryNoBack" resultType="em.hjj.pojo.Loan">
+        select * from loan where backdate is null
+     </select>
+     
+     <select id="queryByName" parameterType="em.hjj.pojo.Loan"
+        resultType="em.hjj.pojo.Loan">
+        select * from loan where name=#{name} and cid=#{cid}
+     </select>
+     
+     <select id="queryById" parameterType="em.hjj.pojo.Loan"
+        resultType="em.hjj.pojo.Loan">
+        select * from loan where id=#{id}
+     </select>
+     
+    <update id="update" parameterType="em.hjj.pojo.Loan">
+    	update loan set backdate=#{backdate} where id=#{id}
+    </update>
+    <insert id="insert" parameterType="em.hjj.pojo.Loan">
+    	INSERT INTO loan (cid,name,eqid,num,outdate,useway,person) 
+    	VALUES(#{cid},#{name},#{eqid},#{num},#{outdate},#{use},#{person})
+    </insert>
+    
+</mapper>

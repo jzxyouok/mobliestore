@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="em.hjj.dao.UserDao">
+    <select id="login" parameterType="em.hjj.pojo.User" resultType="em.hjj.pojo.User">
+        select * from user where name=#{name} and pwd=#{pwd}
+    </select>
+    <update id="changePwd" parameterType="em.hjj.pojo.User">
+    	update user set pwd=#{pwd} where id=#{id}
+    </update>
+</mapper>
